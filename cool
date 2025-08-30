@@ -1,0 +1,383 @@
+<div style="font-family:Arial; text-align:center;">
+
+ 
+<!-- Floating Top Full-Width Action Bar -->
+<div id="actionBar" class="compact">
+  <button class="btn-google" onclick="openSearch('googleImages')" title="Google Images">🖼</button>
+  <button class="btn-youtube" onclick="openSearch('youtube')" title="YouTube">▶</button>
+  <button class="btn-x" onclick="openSearch('x')" title="X">✖</button>
+  <button class="btn-news" onclick="openSearch('googleNews')" title="Google News">📰</button>
+  <button class="btn-wiki" onclick="openSearch('wikipedia')" title="Wikipedia">📖</button>
+  <button class="btn-comment" onclick="openCommentPopup()" title="Add Comment">💬</button>
+</div>
+
+
+<!-- JSON Tree for Roads & Highways -->
+<div class="tree" id="globalKidsTree">
+  <ul>
+    <li>
+      <div class="branch-title">⚽ Popular Sports</div>
+      <ul>
+        <li><span class="word-node" onclick="selectWord(this,'Football')">Football</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Basketball')">Basketball</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Cricket')">Cricket</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Tennis')">Tennis</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Athletics')">Athletics</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Hockey')">Hockey</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Swimming')">Swimming</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Baseball')">Baseball</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Volleyball')">Volleyball</span></li>
+      </ul>
+    </li>
+
+    <li>
+      <div class="branch-title">🏅 Olympic & Global Games</div>
+      <ul>
+        <li><span class="word-node" onclick="selectWord(this,'Olympics')">Olympics</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Paralympics')">Paralympics</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Youth Olympics')">Youth Olympics</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Asian Games')">Asian Games</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Commonwealth Games')">Commonwealth Games</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'FIFA World Cup')">FIFA World Cup</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Cricket World Cup')">Cricket World Cup</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'World Athletics Championships')">Athletics Championships</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Winter Olympics')">Winter Olympics</span></li>
+      </ul>
+    </li>
+
+    <li>
+      <div class="branch-title">🏟️ Infrastructure & Facilities</div>
+      <ul>
+        <li><span class="word-node" onclick="selectWord(this,'Stadiums')">Stadiums</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Sports Academies')">Sports Academies</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Training Centers')">Training Centers</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Sports Villages')">Sports Villages</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Indoor Arenas')">Indoor Arenas</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Swimming Pools')">Swimming Pools</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Sports Science Labs')">Science Labs</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Rehabilitation Centers')">Rehab Centers</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Sports Equipment Hubs')">Equipment Hubs</span></li>
+      </ul>
+    </li>
+
+    <li>
+      <div class="branch-title">💪 Fitness & Health</div>
+      <ul>
+        <li><span class="word-node" onclick="selectWord(this,'Physical Fitness')">Physical Fitness</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Sports Medicine')">Sports Medicine</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Nutrition for Athletes')">Sports Nutrition</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Mental Health in Sports')">Mental Health</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Anti-Doping')">Anti-Doping</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Rehabilitation')">Rehabilitation</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Youth Fitness Programs')">Youth Fitness</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Sports Psychology')">Sports Psychology</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Wellness Programs')">Wellness Programs</span></li>
+      </ul>
+    </li>
+
+    <li>
+      <div class="branch-title">📊 Governance & Policy</div>
+      <ul>
+        <li><span class="word-node" onclick="selectWord(this,'International Olympic Committee')">IOC</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'World Anti-Doping Agency')">WADA</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'FIFA Governance')">FIFA</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'National Sports Ministries')">National Ministries</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Sports Law')">Sports Law</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Athlete Contracts')">Athlete Contracts</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Sponsorship Regulations')">Sponsorship Rules</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Broadcasting Rights')">Broadcasting Rights</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Sports Diplomacy')">Sports Diplomacy</span></li>
+      </ul>
+    </li>
+
+    <li>
+      <div class="branch-title">🧑‍🤝‍🧑 Youth & Grassroots</div>
+      <ul>
+        <li><span class="word-node" onclick="selectWord(this,'School Sports')">School Sports</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'University Sports')">University Sports</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Community Clubs')">Community Clubs</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Talent Identification')">Talent ID</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Coaching for Youth')">Coaching Youth</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Girl’s Participation in Sports')">Girls in Sports</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Inclusive Sports')">Inclusive Sports</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Sports Scholarships')">Sports Scholarships</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Youth Sports Festivals')">Youth Festivals</span></li>
+      </ul>
+    </li>
+
+    <li>
+      <div class="branch-title">📡 Sports & Technology</div>
+      <ul>
+        <li><span class="word-node" onclick="selectWord(this,'VAR in Football')">VAR</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Hawk-Eye in Tennis')">Hawk-Eye</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Wearable Tech for Athletes')">Wearables</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'AI in Sports Training')">AI Training</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Sports Data Analytics')">Data Analytics</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Virtual Reality Training')">VR Training</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'E-Sports')">E-Sports</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Digital Fitness Apps')">Fitness Apps</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Fan Engagement Tech')">Fan Tech</span></li>
+      </ul>
+    </li>
+
+    <li>
+      <div class="branch-title">🤝 Global Cooperation</div>
+      <ul>
+        <li><span class="word-node" onclick="selectWord(this,'International Sports Federations')">Sports Federations</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Bilateral Sports Exchange')">Sports Exchange</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Peace through Sports')">Peace & Sports</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Sports Tourism')">Sports Tourism</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Sports Development Aid')">Sports Aid</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Global Sports Forums')">Sports Forums</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'World Sports Awards')">Sports Awards</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Cross-Cultural Sports Events')">Cultural Sports</span></li>
+        <li><span class="word-node" onclick="selectWord(this,'Global Sports Research')">Sports Research</span></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  </ul>
+</div>
+
+<!-- Description Section -->
+<div class="tree-description">
+  <p>
+    🌍 Sports unite people across the globe, bridging cultures and inspiring teamwork, discipline, 
+    and perseverance. From grassroots to international competitions, the world of sports promotes 
+    health, innovation, and global cooperation. This tree highlights key areas shaping the future 
+    of athletics worldwide.    🌍 Sports unite people across the globe, bridging cultures and inspiring teamwork, discipline, 
+    and perseverance. From grassroots to international competitions, the world of sports promotes 
+    health, innovation, and global cooperation. This tree highlights key areas shaping the future 
+    of athletics worldwide.    🌍 Sports unite people across the globe, bridging cultures and inspiring teamwork, discipline, 
+    and perseverance. From grassroots to international competitions, the world of sports promotes 
+    health, innovation, and global cooperation. This tree highlights key areas shaping the future 
+    of athletics worldwide.
+  </p>
+</div>
+
+  <!-- Popup -->
+  <div id="commentPopup" class="popup-overlay" style="display:none;">
+    <div class="popup-content">
+      <h3 id="popupTitle">Comment</h3>
+      <textarea id="commentText" placeholder="Write your comment..."></textarea>
+      <br>
+      <!-- New Nickname box -->
+      <input type="text" id="nickname" placeholder="Enter your nickname..." />
+      <br><br>
+      <button onclick="submitComment()">Submit</button>
+      <button onclick="closeCommentPopup()">Cancel</button>
+    </div>
+  </div>
+
+</div>
+
+<style>
+/* Full-Width Sticky Header */
+#actionBar {
+  position: sticky;   /* instead of fixed */
+  top: 0;             /* stick to the top */
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  padding: 10px 0;
+  background: #ffffffee;
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+
+/* Push page content down so it’s not hidden under header */
+body {
+  margin-top: 70px; /* adjust if header height changes */
+}
+
+
+/* Buttons inside header */
+#actionBar button {
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+#actionBar button:hover {
+  transform: translateY(-3px) scale(1.05);
+  filter: brightness(0.9);
+}
+
+.btn-google { background: #34A853; }
+.btn-youtube { background: #FF0000; }
+.btn-x { background: #000000; }
+.btn-news { background: #1A73E8; }
+.btn-wiki { background: #7E57C2; }
+.btn-comment { background: #FF9800; }
+
+/* Push page content down so it's not hidden under header */
+body {
+  margin-top: 80px; /* adjust if header height changes */
+}
+
+  #actionBar button {
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    transition: transform 0.25s ease, filter 0.25s ease;
+  }
+  #actionBar button:hover {
+    transform: translateY(-3px) scale(1.05);
+    filter: brightness(0.9);
+  }
+  .btn-google { background: #34A853; }
+  .btn-youtube { background: #FF0000; }
+  .btn-x { background: #000000; }
+  .btn-news { background: #1A73E8; }
+  .btn-wiki { background: #7E57C2; }
+  .btn-comment { background: #FF9800; }
+
+  /* Tree Styling */
+  .tree { display: inline-block; text-align: left; padding: 20px 30px; margin-top: 20px; }
+  .tree ul { list-style-type: none; margin: 0; padding-left: 20px; position: relative; }
+  .tree ul::before { content: ''; border-left: 2px solid #ccc; position: absolute; top: 0; bottom: 0; left: 8px; }
+  .tree li { margin: 8px 0; padding-left: 20px; position: relative; }
+  .tree li::before { content: ''; position: absolute; top: 14px; left: 0; width: 20px; border-top: 2px solid #ccc; }
+  .branch-title { font-weight: bold; padding: 4px 6px; border-radius: 6px; background: #e9f1ff; color: #333; margin: 6px 0; display: inline-block; }
+  .word-node { cursor: pointer; padding: 3px 8px; border-radius: 5px; transition: all 0.3s ease; background: #fff; border: 1px solid transparent; }
+  .word-node:hover { background: #f0f4ff; border: 1px solid #c5d9ff; }
+  .selected { background: #4285F4 !important; color: white !important; font-weight: bold; border: 1px solid #2a65d4 !important; }
+
+  /* Popup Styling */
+  .popup-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2000;
+  }
+  .popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  }
+  #commentText {
+    width: 95%;
+    height: 100px;
+    margin: 10px 0;
+    padding: 8px;
+  }
+  #nickname {
+    width: 95%;
+    padding: 8px;
+    margin-top: 5px;
+  }
+/* Description Styling */
+.tree-description {
+  max-width: 800px;
+  margin: 30px auto 20px auto;
+  padding: 15px 20px;
+  background: #f9fbff;
+  border: 1px solid #d0d9ff;
+  border-radius: 8px;
+  color: #333;
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: justify;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.tree-description p {
+  margin: 0;
+}
+</style>
+
+<script>
+  let selectedWord = null;
+  let lastSelectedNode = null;
+
+  function selectWord(node, word) {
+    selectedWord = word;
+    if (lastSelectedNode) lastSelectedNode.classList.remove("selected");
+    node.classList.add("selected");
+    lastSelectedNode = node;
+  }
+
+  function openSearch(platform) {
+    if (!selectedWord) { alert("Please select a word first!"); return; }
+    let url = "";
+    if (platform === "googleImages") url = "https://www.google.com/search?tbm=isch&q=" + encodeURIComponent(selectedWord);
+    else if (platform === "youtube") url = "https://www.youtube.com/results?search_query=" + encodeURIComponent(selectedWord);
+    else if (platform === "x") url = "https://x.com/search?q=" + encodeURIComponent(selectedWord);
+    else if (platform === "googleNews") url = "https://news.google.com/search?q=" + encodeURIComponent(selectedWord);
+    else if (platform === "wikipedia") url = "https://en.wikipedia.org/wiki/" + encodeURIComponent(selectedWord);
+    window.open(url, "_blank");
+  }
+
+  // Comment Popup
+  function openCommentPopup() {
+    if (!selectedWord) { alert("Please select a word first!"); return; }
+    document.getElementById("popupTitle").innerText = "Comment on: " + selectedWord;
+    document.getElementById("commentText").value = "";
+
+    let savedNick = localStorage.getItem("nickname");
+    document.getElementById("nickname").value = savedNick ? savedNick : "";
+
+    document.getElementById("commentPopup").style.display = "flex";
+  }
+
+  function closeCommentPopup() {
+    document.getElementById("commentPopup").style.display = "none";
+  }
+
+  function submitComment() {
+    let comment = document.getElementById("commentText").value.trim();
+    let nickname = document.getElementById("nickname").value.trim();
+
+    if (!comment) { alert("Please write something."); return; }
+    if (!nickname) { alert("Please enter a nickname."); return; }
+
+    localStorage.setItem("nickname", nickname);
+
+    let timestamp = new Date().toLocaleString();
+
+    let data = {
+      word: selectedWord,
+      comment: comment,
+      timestamp: timestamp,
+      nickname: nickname
+    };
+
+    fetch("https://script.google.com/macros/s/AKfycbzPYgN_YifSUcTuUURXPyurDIaPmjc5mPBerOyIrg0kkzJh6up1qpMClNLr2KwIk245/exec", {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+
+    alert("Your comment has been saved successfully!");
+    closeCommentPopup();
+  }
+</script>
