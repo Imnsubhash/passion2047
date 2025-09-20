@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Passion2047 Learn Engine</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(120deg, #1a1a2e, #16213e);
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #0f3460;
+      padding: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    #buttonContainer {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px;
+      padding: 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .btn {
+      background: #e94560;
+      border: none;
+      padding: 15px;
+      border-radius: 12px;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #ff6f91;
+      transform: scale(1.05);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .backBtn {
+      grid-column: 1 / -1;
+      background: #21c47c;
+    }
+  </style>
+</head>
+<body>
+  <header>WELCOME TO Passion2047's Learn Engine</header>
+
+  <div id="buttonContainer"></div>
+
+  <script>
+    // Data hierarchy
+    const data = {
+      ministries: [
+        "Home", "Defence", "Aviation", "Finance", "Education",
+        "Health", "Agriculture", "Industry", "Transport", "Energy",
+        "Science", "Technology", "Environment", "Tourism", "Sports",
+        "Culture", "Law", "Labor", "Commerce", "External Affairs",
+        "Information", "Railways", "Urban Dev", "Rural Dev", "Social Justice",
+        "Women & Child", "Water", "Space", "Telecom", "Planning"
+      ],
+      Education: ["10+2", "Engineering", "Medical", "Arts", "Commerce"],
+
+      "10+2": [
+        { name: "Physics", link: "https://www.passion2047.org/interphysics" },
+        { name: "Chemistry", link: "https://www.passion2047.org/interchemistry" },
+        "Biology",
+        "Mathematics"
+      ],
+
+      Engineering: ["Mechanical", "Civil", "Electrical", "Computer Science"],
+      Medical: ["MBBS", "Dentistry", "Pharmacy", "Nursing"],
+      "Mechanical": ["Thermodynamics", "Fluid Mechanics", "Design"],
+      "Computer Science": ["Programming", "Data Structures", "AI & ML"],
+      "Biology": ["Botany", "Zoology", "Genetics"],
+      "Mathematics": ["Algebra", "Calculus", "Statistics"]
+    };
+
+    const container = document.getElementById("buttonContainer");
+    let history = [];
+
+    // Render buttons dynamically
+    function renderButtons(key) {
+      container.innerHTML = "";
+
+      let items = data[key] || data.ministries;
+
+      // Back button (except root)
+      if (history.length > 0) {
+        let backBtn = document.createElement("button");
+        backBtn.innerText = "⬅ Back";
+        backBtn.className = "btn backBtn";
+        backBtn.onclick = () => {
+          history.pop();
+          renderButtons(history[history.length - 1] || "ministries");
+        };
+        container.appendChild(backBtn);
+      }
+
+      // Show items
+      items.forEach(item => {
+        let btn = document.createElement("button");
+        btn.className = "btn";
+
+        if (typeof item === "object" && item.link) {
+          btn.innerText = item.name;
+          btn.onclick = () => window.open(item.link, "_blank");
+        } else {
+          btn.innerText = item;
+          btn.onclick = () => {
+            if (data[item]) {
+              history.push(key);
+              renderButtons(item);
+            } else {
+              alert("Coming soon: " + item);
+            }
+          };
+        }
+
+        container.appendChild(btn);
+      });
+    }
+
+    // Initial render
+    renderButtons("ministries");
+  </script>
+</body>
+</html>
+
+<script>
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxy2dbvW9_Iq_1XMZBzYVemoqEoeTdL2h3dQbkBilxSGASmpJJJOI4gk-SEJpvgVTpn/exec"; // Replace with your Apps Script URL
+  const restrictedPaths = ["/premium/"];
+
+  // Generate unique device ID if not already stored
+  function getDeviceId() {
+    let id = localStorage.getItem("deviceId");
+    if (!id) {
+      id = 'dev-' + Math.random().toString(36).substring(2, 15) + Date.now();
+      localStorage.setItem("deviceId", id);
+    }
+    return id;
+  }
+
+  if (restrictedPaths.some(path => window.location.pathname.startsWith(path))) {
+    document.documentElement.style.overflow = "hidden";
+
+    document.write(`
+      <div id="emailGate" style="
+        position:fixed; top:0; left:0; width:100%; height:100%;
+        background:rgba(0,0,0,0.95); color:#fff; display:flex;
+        justify-content:center; align-items:center; flex-direction:column;
+        z-index:9999; font-family:Arial, sans-serif; text-align:center;
+      ">
+        <h2>Restricted Access</h2>
+        <p>Enter your registered email to continue</p>
+        <input id="userEmail" type="email" placeholder="Enter your email" 
+               style="padding:10px; width:250px; margin:10px; border-radius:5px; border:none;">
+        <button onclick="checkEmail()" style="padding:10px 20px; cursor:pointer; border-radius:5px; margin-top:10px; background:#4CAF50; color:#fff; border:none;">Submit</button>
+        <p id="status" style="color:red; margin-top:10px;"></p>
+      </div>
+    `);
+
+    window.checkEmail = function() {
+      let email = document.getElementById("userEmail").value.trim();
+      if (!email) {
+        document.getElementById("status").innerText = "Please enter a valid email.";
+        return;
+      }
+
+      let deviceId = getDeviceId();
+
+      fetch(SCRIPT_URL + "?email=" + encodeURIComponent(email) + "&deviceId=" + encodeURIComponent(deviceId))
+        .then(res => res.json())
+        .then(data => {
+          if (data.allowed) {
+            document.getElementById("emailGate").style.display = "none";
+            document.documentElement.style.overflow = "auto";
+            localStorage.setItem("verifiedEmail_premium", email);
+          } else {
+            document.getElementById("status").innerText = "Access denied. Device limit reached.";
+          }
+        })
+        .catch(err => {
+          document.getElementById("status").innerText = "Error checking email.";
+        });
+    };
+
+    window.onload = function() {
+      let saved = localStorage.getItem("verifiedEmail_premium");
+      if (saved) {
+        let deviceId = getDeviceId();
+        fetch(SCRIPT_URL + "?email=" + encodeURIComponent(saved) + "&deviceId=" + encodeURIComponent(deviceId))
+          .then(res => res.json())
+          .then(data => {
+            if (data.allowed) {
+              document.getElementById("emailGate").style.display = "none";
+              document.documentElement.style.overflow = "auto";
+            }
+          });
+      }
+    };
+  }
+</script>
